@@ -871,7 +871,7 @@ Position Value: $${calculations.positionValue.toFixed(2)} (Effective Leverage: $
                 />
               </div>
 
-              <div className="flex items-center justify-between text-[11px] font-mono">
+              <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[11px] font-mono">
                 <span className="text-red-400">Downside: -${calculations.riskDollar.toFixed(2)} (-{calculations.lossPercentMove.toFixed(2)}%)</span>
                 <span className="text-emerald-400">Target: +${calculations.potentialProfit.toFixed(2)} (+{calculations.gainPercentMove.toFixed(2)}%)</span>
               </div>

@@ -33,42 +33,46 @@ export function MarketTerminalSection() {
           </div>
 
           {/* Tab Navigation Selector */}
-          <div className="flex items-center gap-1.5 rounded-xl border border-border bg-card p-1.5 shadow-sm">
-            <button
-              onClick={() => setActiveTab("CHART")}
-              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition cursor-pointer ${
-                activeTab === "CHART"
-                  ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/25"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              <BarChart3 className="h-3.5 w-3.5" />
-              <span>Multi-Asset Chart</span>
-            </button>
+          <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto scrollbar-none">
+            <div className="flex w-max sm:w-auto items-center gap-1.5 rounded-xl border border-border bg-card p-1.5 shadow-sm">
+              <button
+                onClick={() => setActiveTab("CHART")}
+                className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold transition cursor-pointer ${
+                  activeTab === "CHART"
+                    ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/25"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                }`}
+              >
+                <BarChart3 className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Multi-Asset Chart</span>
+                <span className="sm:hidden">Chart</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab("SECTORS")}
-              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition cursor-pointer ${
-                activeTab === "SECTORS"
-                  ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/25"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              <Globe className="h-3.5 w-3.5" />
-              <span>Sector Heatmap</span>
-            </button>
+              <button
+                onClick={() => setActiveTab("SECTORS")}
+                className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold transition cursor-pointer ${
+                  activeTab === "SECTORS"
+                    ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/25"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                }`}
+              >
+                <Globe className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Sector Heatmap</span>
+                <span className="sm:hidden">Sectors</span>
+              </button>
 
-            <button
-              onClick={() => setActiveTab("CRYPTO")}
-              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold transition cursor-pointer ${
-                activeTab === "CRYPTO"
-                  ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/25"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              <Coins className="h-3.5 w-3.5" />
-              <span>Crypto Markets</span>
-            </button>
+              <button
+                onClick={() => setActiveTab("CRYPTO")}
+                className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs font-bold transition cursor-pointer ${
+                  activeTab === "CRYPTO"
+                    ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/25"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                }`}
+              >
+                <Coins className="h-3.5 w-3.5" />
+                <span>Crypto</span>
+              </button>
+            </div>
           </div>
         </div>
 

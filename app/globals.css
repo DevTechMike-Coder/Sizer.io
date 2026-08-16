@@ -138,3 +138,12 @@
 .tradingview-widget-container a {
   display: none !important;
 }
+
+/* Hide scrollbars on horizontally-scrollable mobile strips (tabs, chip rows) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
