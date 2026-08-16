@@ -301,6 +301,8 @@ export function LiveChart() {
         color: "#06b6d4",
         lineWidth: 1,
         title: "EMA 20",
+        lastValueVisible: false,
+        priceLineVisible: false,
       });
       ema20SeriesRef.current = ema20;
 
@@ -308,6 +310,8 @@ export function LiveChart() {
         color: "#f59e0b",
         lineWidth: 1,
         title: "SMA 50",
+        lastValueVisible: false,
+        priceLineVisible: false,
       });
       sma50SeriesRef.current = sma50;
     }
@@ -417,6 +421,8 @@ export function LiveChart() {
           color: "#06b6d4",
           lineWidth: 1,
           title: "EMA 20",
+          lastValueVisible: false,
+          priceLineVisible: false,
         });
         ema20SeriesRef.current = ema20;
         if (candles.length > 20) {
@@ -428,6 +434,8 @@ export function LiveChart() {
           color: "#f59e0b",
           lineWidth: 1,
           title: "SMA 50",
+          lastValueVisible: false,
+          priceLineVisible: false,
         });
         sma50SeriesRef.current = sma50;
         if (candles.length > 50) {
@@ -1101,13 +1109,13 @@ export function LiveChart() {
           <span>Engine: TradingView Lightweight Charts™ v5</span>
         </div>
 
-        <div className="flex items-center gap-4 text-[11px] font-mono">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-mono min-w-0">
           <span className="text-zinc-500">
             Resolution: <strong className="text-zinc-300">{selectedTimeframe}</strong>
           </span>
-          <span className="text-zinc-700">•</span>
-          <span className="text-zinc-500">
-            Stream: <strong className="text-emerald-400">wss://ws.twelvedata.com/v1/quotes/price</strong>
+          <span className="hidden sm:inline text-zinc-700">•</span>
+          <span className="text-zinc-500 min-w-0 break-all sm:break-normal">
+            Stream: <strong className="text-emerald-400 break-all">wss://ws.twelvedata.com/v1/quotes/price</strong>
           </span>
         </div>
       </div>

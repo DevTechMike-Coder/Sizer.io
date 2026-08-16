@@ -596,7 +596,7 @@ Position Value: $${calculations.positionValue.toFixed(2)} (Effective Leverage: $
 
           {/* Card 2: Account Balance & Risk Tolerance */}
           <div className="rounded-2xl border border-border/70 bg-card/60 backdrop-blur-xl p-5 sm:p-6 shadow-xl space-y-5">
-            <div className="flex items-center justify-between border-b border-border/40 pb-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/40 pb-3">
               <div className="flex items-center gap-2">
                 <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500 text-xs font-bold font-mono">
                   2
@@ -611,9 +611,9 @@ Position Value: $${calculations.positionValue.toFixed(2)} (Effective Leverage: $
 
             {/* Account Balance Input + Presets */}
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <label className="text-xs font-semibold text-foreground">Total Account Equity ($ USD)</label>
-                <div className="flex items-center gap-1">
+                <div className="flex flex-wrap items-center gap-1">
                   {ACCOUNT_PRESETS.map((preset) => (
                     <button
                       key={preset.value}
@@ -645,9 +645,9 @@ Position Value: $${calculations.positionValue.toFixed(2)} (Effective Leverage: $
 
             {/* Risk Percentage Input + Presets */}
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <label className="text-xs font-semibold text-foreground">Risk Percentage Per Trade (%)</label>
-                <div className="flex items-center gap-1">
+                <div className="flex flex-wrap items-center gap-1">
                   {RISK_PRESETS.map((preset) => (
                     <button
                       key={preset.value}

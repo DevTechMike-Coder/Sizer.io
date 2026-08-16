@@ -135,15 +135,15 @@ export function CryptoMarketTable() {
       {loading && coins.length === 0 ? (
         <div className="py-12 text-center text-xs text-muted-foreground">Loading crypto markets...</div>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm">
+        <div className="overflow-x-auto -mx-6 px-6 sm:mx-0 sm:px-0 scrollbar-none">
+          <table className="w-full min-w-[620px] text-left text-sm">
             <thead className="border-b border-border/40 text-xs uppercase text-muted-foreground">
               <tr>
-                <th className="pb-3 pl-2">#</th>
-                <th className="pb-3">Asset</th>
-                <th className="pb-3 text-right">Price</th>
-                <th className="pb-3 text-right">24h Change</th>
-                <th className="pb-3 text-right pr-2">Market Cap</th>
+                <th className="pb-3 pl-2 whitespace-nowrap">#</th>
+                <th className="pb-3 whitespace-nowrap">Asset</th>
+                <th className="pb-3 text-right whitespace-nowrap">Price</th>
+                <th className="pb-3 text-right whitespace-nowrap">24h Change</th>
+                <th className="pb-3 text-right pr-2 whitespace-nowrap">Market Cap</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border/20 font-mono">
@@ -153,22 +153,22 @@ export function CryptoMarketTable() {
                   <tr key={coin.id} className="transition hover:bg-muted/30">
                     <td className="py-3.5 pl-2 font-medium text-muted-foreground">{coin.market_cap_rank}</td>
                     <td className="py-3.5 font-sans">
-                      <div className="flex items-center gap-2.5">
-                        <img src={coin.image} alt={coin.name} className="h-6 w-6 rounded-full" />
+                      <div className="flex items-center gap-2.5 whitespace-nowrap">
+                        <img src={coin.image} alt={coin.name} className="h-6 w-6 rounded-full shrink-0" />
                         <span className="font-bold text-foreground">{coin.name}</span>
                         <span className="text-xs uppercase text-muted-foreground">{coin.symbol}</span>
                       </div>
                     </td>
-                    <td className="py-3.5 text-right font-semibold text-foreground">
+                    <td className="py-3.5 text-right font-semibold text-foreground whitespace-nowrap">
                       ${coin.current_price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
                     </td>
-                    <td className="py-3.5 text-right">
+                    <td className="py-3.5 text-right whitespace-nowrap">
                       <span className={`inline-flex items-center gap-1 font-semibold ${isPositive ? "text-green-500" : "text-red-500"}`}>
                         {isPositive ? <TrendingUp className="h-3.5 w-3.5" /> : <TrendingDown className="h-3.5 w-3.5" />}
                         {Math.abs(coin.price_change_percentage_24h).toFixed(2)}%
                       </span>
                     </td>
-                    <td className="py-3.5 text-right pr-2 font-semibold text-foreground">
+                    <td className="py-3.5 text-right pr-2 font-semibold text-foreground whitespace-nowrap">
                       ${coin.market_cap.toLocaleString()}
                     </td>
                   </tr>
