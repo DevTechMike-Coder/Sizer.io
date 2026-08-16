@@ -1,0 +1,69 @@
+// Sizer.io Database Schema
+// Optimized for SQLite in local development & PostgreSQL / Supabase in production
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  riskProfile  RiskProfile?
+  tradeSetups  TradeSetup[]
+
+  @@map("users")
+}
+
+model RiskProfile {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  defaultEquity       Float    @default(50000)
+  defaultRiskPercent  Float    @default(1.0)
+  defaultLeverage     Float    @default(1.0)
+  propFirmMode        Boolean  @default(true)
+  maxDailyLossPercent Float    @default(5.0)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("risk_profiles")
+}
+
+model TradeSetup {
+  id              String   @id @default(cuid())
+  userId          String?
+  user            User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  symbol          String
+  assetName       String
+  category        String   // "EQUITIES" | "FOREX" | "CRYPTO" | "COMMODITIES" | "INDICES"
+  direction       String   // "LONG" | "SHORT"
+  accountEquity   Float
+  riskPercent     Float
+  riskDollar      Float
+  entryPrice      Float
+  stopLoss        Float
+  takeProfit      Float
+  recommendedSize Float
+  unitLabel       String
+  lotMultiplier   Float?
+  riskRewardRatio Float
+  potentialProfit Float
+  pipsAtRisk      Float?
+  pipsTarget      Float?
+  status          String   @default("PLANNED") // "PLANNED" | "EXECUTED" | "CLOSED_PROFIT" | "CLOSED_LOSS"
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("trade_setups")
+}
