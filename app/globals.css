@@ -128,3 +128,13 @@
     @apply font-sans;
   }
 }
+
+/* Hide the TradingView copyright/attribution link under widgets */
+.tradingview-widget-copyright {
+  display: none !important;
+}
+
+/* If using custom containers, hide any links rendered inside the wrapper */
+.tradingview-widget-container a {
+  display: none !important;
+}
